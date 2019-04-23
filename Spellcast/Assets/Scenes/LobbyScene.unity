@@ -253,8 +253,8 @@ MonoBehaviour:
   m_OfflineScene: LobbyScene
   m_OnlineScene: 
   m_SpawnPrefabs:
-  - {fileID: 1947158747923396, guid: 1429712afb540af468981e83d87e2f02, type: 2}
-  - {fileID: 1182999080646464, guid: 502406b5ad7ea7e44979d2a3f72f7277, type: 2}
+  - {fileID: 1634477562934418, guid: 549ea8990cd31b4478fa22a3ed070274, type: 2}
+  - {fileID: 1634477562934418, guid: d352d57caae12124ca12e919c5414126, type: 2}
   - {fileID: 1571974181651354, guid: aec523e79aca2054fb1ee7ad30bc9e64, type: 2}
   - {fileID: 1114594514104816, guid: 19ef8f4766d1d6b43bae2139f3263f34, type: 2}
   m_CustomConfig: 0
@@ -321,7 +321,7 @@ MonoBehaviour:
   m_GamePlayerPrefab: {fileID: 1947158747923396, guid: 1429712afb540af468981e83d87e2f02,
     type: 2}
   m_LobbyScene: LobbyScene
-  m_PlayScene: NetworkingTest
+  m_PlayScene: MainScene
   lobbySlots: []
   ipAddress: localhost
 --- !u!4 &86318174

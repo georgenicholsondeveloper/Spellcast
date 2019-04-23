@@ -11,10 +11,10 @@ public class PlayerCharacterScript : NetworkBehaviour {
     private SpellSystem spellSys;
 
     private Vector3 move = Vector3.zero;
-    private GameObject vrtk;
+    private GameObject vrtk, manager, hand;
     public GameObject wand;
     public GameObject wandColor;
-    public GameObject hand;
+    
     private GameObject spawnPoint1, spawnPoint2;
     private Camera fpsCamera;
     private Vector2 moveInput;
@@ -31,16 +31,19 @@ public class PlayerCharacterScript : NetworkBehaviour {
     public float wandHeight;
     public float playerHealth;
 
-
+    private void Awake()
+    {
+        manager = GameObject.Find("Manager");
+    }
     public override void OnStartAuthority()
     {
         player = gameObject.GetComponent<CharacterController>();
         spellSys = gameObject.GetComponentInChildren<SpellSystem>();
         vrtk = GameObject.FindGameObjectWithTag("VRKit");
         fpsCamera = Camera.main;
-        spawnPoint1 = GameObject.Find("Spawn1");
-        spawnPoint2 = GameObject.Find("Spawn2");
-        
+        spawnPoint1 = manager.GetComponent<VariableStorageMainGame>().spawn1;
+        spawnPoint2 = manager.GetComponent<VariableStorageMainGame>().spawn2;
+
 
         if (transform.parent != isLocalPlayer)
         {
@@ -48,19 +51,7 @@ public class PlayerCharacterScript : NetworkBehaviour {
             vrtk.gameObject.SetActive(false);
         }
         else
-        {
-            if (!spawnInUse)
-            {
-                player.transform.position = spawnPoint1.transform.position;
-                player.transform.rotation = spawnPoint1.transform.rotation;
-                spawnInUse = true;
-            }
-            else
-            {
-                player.transform.position = spawnPoint2.transform.position;
-                player.transform.rotation = spawnPoint2.transform.rotation;
-            }
-
+        {                     
             vrtk.gameObject.SetActive(true);
             vrtk.transform.parent = this.transform;
             vrtk.transform.position = player.transform.position;
@@ -68,6 +59,19 @@ public class PlayerCharacterScript : NetworkBehaviour {
             recognizer.OnPhraseRecognized += SpeechRecognition;
             recognizer.Start();
             AttachWandToHand();
+
+            if (gameObject.name.Contains("One"))
+            {
+                transform.position = spawnPoint1.transform.position;
+                transform.rotation = spawnPoint1.transform.rotation;
+                vrtk.transform.rotation = transform.rotation;
+            }
+            if (gameObject.name.Contains("Two"))
+            {
+                player.transform.position = spawnPoint2.transform.position;
+                player.transform.rotation = spawnPoint2.transform.rotation;
+                vrtk.transform.rotation = transform.rotation;
+            }
             return;
         }
     }
@@ -81,7 +85,7 @@ public class PlayerCharacterScript : NetworkBehaviour {
 
     void AttachWandToHand()
     {
-        hand = GameObject.FindGameObjectWithTag("hand");
+        hand  = manager.GetComponent<VariableStorageMainGame>().hand;
         wand.transform.position = hand.transform.position + new Vector3(0, wandHeight, 0);
         wand.transform.eulerAngles = hand.transform.eulerAngles - new Vector3(rotateWand, 0, 0);
 
@@ -123,10 +127,10 @@ public class PlayerCharacterScript : NetworkBehaviour {
             moveInput.Normalize();
         }
 
-        Vector3 moveDirection = fpsCamera.transform.TransformDirection(transform.forward * moveInput.y + transform.right * moveInput.x);
+        //     Vector3 moveDirection = fpsCamera.transform.TransformDirection(transform.forward * moveInput.y + transform.right * moveInput.x);
 
-        move.x = moveDirection.x * moveSpeed;
-        move.z = moveDirection.z * moveSpeed;
+        move.x =/* moveDirection.x */ 0;
+        move.z =/* moveDirection.z */ 0;
 
         if (player.isGrounded)
         {
@@ -149,7 +153,7 @@ public class PlayerCharacterScript : NetworkBehaviour {
 
     void SpeechRecognition(PhraseRecognizedEventArgs args)
     {
-        if (transform.parent == isLocalPlayer)
+        if (isLocalPlayer)
         {
             print(args.text);
       

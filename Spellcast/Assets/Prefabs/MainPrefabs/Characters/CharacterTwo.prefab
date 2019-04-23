@@ -100,9 +100,9 @@ GameObject:
   - component: {fileID: 114031480335078648}
   - component: {fileID: 114533881250237572}
   - component: {fileID: 114303180807589682}
-  - component: {fileID: 114349687813828712}
+  - component: {fileID: 114948442032236154}
   m_Layer: 0
-  m_Name: Vanilla Controller
+  m_Name: CharacterTwo
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -141,15 +141,15 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1634477562934418}
-  m_LocalRotation: {x: -0, y: -0.60876125, z: -0, w: 0.7933535}
-  m_LocalPosition: {x: 0.46345222, y: 0.06, z: -2.3508658}
-  m_LocalScale: {x: 0.75, y: 1, z: 0.75}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.75, y: 1, z: 0.5}
   m_Children:
   - {fileID: 4188470215508554}
   - {fileID: 4920073264049958}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -75, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4634920115354924
 Transform:
   m_ObjectHideFlags: 1
@@ -192,7 +192,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 2cb89920296f3a54bbaf19cfeb47553f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -227,7 +227,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 2cb89920296f3a54bbaf19cfeb47553f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -447,19 +447,6 @@ MonoBehaviour:
   m_MovementThreshold: 0.001
   m_InterpolateRotation: 0.5
   m_InterpolateMovement: 0.5
---- !u!114 &114349687813828712
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1634477562934418}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d138ea8e5d5ba1444917d07a361b81ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  castPoint: {fileID: 1528178448987996}
-  castSphere: {fileID: 1816552258928574, guid: 789c91cde0fb42b48805cfb2515e98a4, type: 2}
 --- !u!114 &114533881250237572
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -495,22 +482,22 @@ MonoBehaviour:
   m_SceneId:
     m_Value: 0
   m_AssetId:
-    i0: 84
-    i1: 158
-    i2: 168
-    i3: 153
-    i4: 12
-    i5: 211
-    i6: 27
-    i7: 68
-    i8: 120
-    i9: 250
-    i10: 34
-    i11: 163
-    i12: 237
-    i13: 7
-    i14: 2
-    i15: 116
+    i0: 211
+    i1: 82
+    i2: 213
+    i3: 124
+    i4: 170
+    i5: 225
+    i6: 33
+    i7: 36
+    i8: 202
+    i9: 18
+    i10: 233
+    i11: 25
+    i12: 197
+    i13: 65
+    i14: 65
+    i15: 38
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 1
 --- !u!114 &114896948737893584
@@ -525,6 +512,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1634477562934418}
+--- !u!114 &114948442032236154
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1634477562934418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00da0b1d798c64b4fbce4ea4907a25c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  castPoint: {fileID: 1528178448987996}
+  castSphere: {fileID: 1816552258928574, guid: 789c91cde0fb42b48805cfb2515e98a4, type: 2}
 --- !u!114 &114965833541675786
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -538,7 +538,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wand: {fileID: 1020438669274828}
   wandColor: {fileID: 1400489653995972}
-  hand: {fileID: 0}
   moveSpeed: 0.1
   jumpForce: 0.1
   gravity: 0.1
