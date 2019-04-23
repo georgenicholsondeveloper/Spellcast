@@ -30,9 +30,7 @@ public class Calibration : MonoBehaviour
             spawneee = Instantiate(castSphere);
             spawneee.GetComponent<SphereCollider>().radius = sphereRadius;
             spawneee.transform.position = rCenter;
-            print(spawneee.transform.position);
             spawneee.transform.Translate(new Vector3(0, -.1f, 0), Space.World);
-            print(spawneee.transform.position);
             spawneee.transform.SetParent(head.transform);
         }
 

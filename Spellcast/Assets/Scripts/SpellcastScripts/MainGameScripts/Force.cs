@@ -5,7 +5,7 @@ using UnityEngine.Networking;
 
 public class Force : NetworkBehaviour {
 
-    public int Bouncecount = 0;
+    int Bouncecount = 0;
     public GameObject player;
     private Rigidbody RB;
     float xForce = 0;
@@ -58,7 +58,6 @@ public class Force : NetworkBehaviour {
     {
         if (collision.collider.tag == "floor")
         {
-            print(Bouncecount);
             Bouncecount++; 
         }
     }

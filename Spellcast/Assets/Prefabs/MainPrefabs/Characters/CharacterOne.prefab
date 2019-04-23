@@ -98,6 +98,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1549894957823250
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4275751211180686}
+  - component: {fileID: 33367491872725310}
+  - component: {fileID: 23384462483909564}
+  m_Layer: 0
+  m_Name: SpellIndicator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1620204296404526
 GameObject:
   m_ObjectHideFlags: 0
@@ -180,6 +197,19 @@ Transform:
   m_Father: {fileID: 4347844088120724}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4275751211180686
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1549894957823250}
+  m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: -0.038, y: -0.064, z: 1.302}
+  m_LocalScale: {x: 0.66666645, y: 0.49999958, z: 0.66666657}
+  m_Children: []
+  m_Father: {fileID: 4634920115354924}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4347844088120724
 Transform:
   m_ObjectHideFlags: 1
@@ -219,7 +249,8 @@ Transform:
   m_LocalRotation: {x: -0.5, y: 0.5, z: 0.5, w: 0.5}
   m_LocalPosition: {x: 0, y: 1.0999999, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0.25}
-  m_Children: []
+  m_Children:
+  - {fileID: 4275751211180686}
   m_Father: {fileID: 4347844088120724}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -90, y: 90, z: 0}
@@ -323,6 +354,41 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 77d906f8d7fad664195321c4a82469fc, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!23 &23384462483909564
+MeshRenderer:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1549894957823250}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -461,6 +527,13 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1020438669274828}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!33 &33367491872725310
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1549894957823250}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!33 &33484217834051098
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -560,13 +633,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20dfb5782364bcc409d1c6722f82b889, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pBolt: {fileID: 1621288943075478, guid: cc37033f0d99e08468c5fab93745ba69, type: 2}
-  LitForce: 1000
+  pBolt: {fileID: 1118537426181088, guid: f660e5738e4fecb40a91455c31c9f59c, type: 2}
+  LitForce: 4000
   pBall: {fileID: 1989922901165804, guid: c0b70ce9862b7eb43b99ce345389cc9e, type: 2}
   OnceInstance: 0
   shouldCast: 0
   castPoint: {fileID: 1528178448987996}
   pShield: {fileID: 1306646394042406, guid: 04c2cbd54524f87469efc8f50e6b6ce8, type: 2}
+  castCounter: 0
   FireMode: 0
   LitMode: 0
   ShieldMode: 0
@@ -640,6 +714,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wand: {fileID: 1020438669274828}
   wandColor: {fileID: 1268449572541876}
+  tipColor: {fileID: 1549894957823250}
+  model: {fileID: 1620204296404526}
   moveSpeed: 0.1
   jumpForce: 0.1
   gravity: 0.1

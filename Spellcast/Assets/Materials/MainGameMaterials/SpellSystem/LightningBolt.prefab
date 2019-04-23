@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 96729103932047756}
   - component: {fileID: 114676360181537972}
   - component: {fileID: 114780870242254938}
+  - component: {fileID: 114498535526202070}
   m_Layer: 0
   m_Name: LightningBolt
   m_TagString: Untagged
@@ -207,6 +208,20 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!114 &114498535526202070
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1621288943075478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e9a2167e56ebec4aa182d2f8b10762d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  minusBy: 5
+  Limit: 25
 --- !u!114 &114676360181537972
 MonoBehaviour:
   m_ObjectHideFlags: 1

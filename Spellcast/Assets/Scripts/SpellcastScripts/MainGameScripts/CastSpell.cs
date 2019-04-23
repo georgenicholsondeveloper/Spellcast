@@ -11,7 +11,8 @@ public class CastSpell : MonoBehaviour {
     {
         if (other.CompareTag("CastRadius"))
         {
-            player.GetComponent<SpellSystem>().shouldCast = true;
+            if (player.GetComponent<SpellSystem>().castCounter != 0)
+                player.GetComponent<SpellSystem>().shouldCast = true;
         }
     }
 }

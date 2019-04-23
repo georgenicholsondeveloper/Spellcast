@@ -22,6 +22,8 @@ public class SpellSystem : NetworkBehaviour {
     private Vector3 sEndRange;
     private float sActiveTimer;
 
+    public int castCounter = 0;
+
     public bool FireMode, LitMode, ShieldMode;
 
 
@@ -35,7 +37,6 @@ public class SpellSystem : NetworkBehaviour {
     {
         if (LitMode  && !shieldExpanding)
         {
-
             CmdSpawnLightning();
             FireMode = false;
             ShieldMode = false;
@@ -61,7 +62,7 @@ public class SpellSystem : NetworkBehaviour {
 
     private void FireBall()
     {
-        if (/*!OnceInstance && */FireMode && !shieldExpanding)
+        if (FireMode && !shieldExpanding)
         {        
             CmdSpawnBall();
             OnceInstance = true;
@@ -119,14 +120,14 @@ public class SpellSystem : NetworkBehaviour {
 
             if (LitMode)
             {
-
                 LightningBolt();
             }
             if (ShieldMode)
             {
-
                 ShieldCall();
             }
+
+            castCounter -= 1;
             shouldCast = false;
         }
     }

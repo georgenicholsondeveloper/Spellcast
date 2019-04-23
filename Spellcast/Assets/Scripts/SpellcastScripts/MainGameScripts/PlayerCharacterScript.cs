@@ -13,7 +13,7 @@ public class PlayerCharacterScript : NetworkBehaviour {
     private Vector3 move = Vector3.zero;
     private GameObject vrtk, manager, hand;
     public GameObject wand;
-    public GameObject wandColor;
+    public GameObject wandColor, tipColor, model;
     
     private GameObject spawnPoint1, spawnPoint2;
     private Camera fpsCamera;
@@ -45,6 +45,7 @@ public class PlayerCharacterScript : NetworkBehaviour {
         spawnPoint2 = manager.GetComponent<VariableStorageMainGame>().spawn2;
 
 
+
         if (transform.parent != isLocalPlayer)
         {
             fpsCamera.enabled = false;
@@ -55,6 +56,7 @@ public class PlayerCharacterScript : NetworkBehaviour {
             vrtk.gameObject.SetActive(true);
             vrtk.transform.parent = this.transform;
             vrtk.transform.position = player.transform.position;
+           
             recognizer = new KeywordRecognizer(keywords);
             recognizer.OnPhraseRecognized += SpeechRecognition;
             recognizer.Start();
@@ -79,8 +81,11 @@ public class PlayerCharacterScript : NetworkBehaviour {
 
     void Update()
     {
-        CheckAuthority();
         WandInHandLock();
+        CooldownSet();
+        Vector3 mScale = manager.GetComponent<VariableStorageMainGame>().head.transform.position;
+        model.transform.localScale = new Vector3(model.transform.localScale.x, mScale.y * .5f, model.transform.localScale.z);
+        model.transform.position = manager.GetComponent<VariableStorageMainGame>().head.transform.position - new Vector3(0, 0.9f, 0);
     }
 
     void AttachWandToHand()
@@ -88,7 +93,7 @@ public class PlayerCharacterScript : NetworkBehaviour {
         hand  = manager.GetComponent<VariableStorageMainGame>().hand;
         wand.transform.position = hand.transform.position + new Vector3(0, wandHeight, 0);
         wand.transform.eulerAngles = hand.transform.eulerAngles - new Vector3(rotateWand, 0, 0);
-
+       
     }
 
     void WandInHandLock()
@@ -100,55 +105,10 @@ public class PlayerCharacterScript : NetworkBehaviour {
         
     }
 
-
-    void CheckAuthority()
+    void CooldownSet()
     {
-        if (hasAuthority)
-        {
-            Movement();
-
-        }
-        else
-        {
-            return;
-        }
-    }
-
-
-    void Movement()
-    {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
-
-        moveInput = new Vector2(horizontal, vertical);
-
-        if (moveInput.sqrMagnitude > 1)
-        {
-            moveInput.Normalize();
-        }
-
-        //     Vector3 moveDirection = fpsCamera.transform.TransformDirection(transform.forward * moveInput.y + transform.right * moveInput.x);
-
-        move.x =/* moveDirection.x */ 0;
-        move.z =/* moveDirection.z */ 0;
-
-        if (player.isGrounded)
-        {
-            move.y = 0;
-            jumpTick = false;
-        }
-        else
-        {
-            move.y -= gravity * Time.deltaTime;
-        }
-
-        if (Input.GetButton("Jump") && jumpTick == false)
-        {
-            move.y = jumpForce;
-            jumpTick = true;
-        }
-
-        player.Move(move);
+        if(spellSys.castCounter == 0)
+            tipColor.GetComponent<Renderer>().material.color = Color.white;
     }
 
     void SpeechRecognition(PhraseRecognizedEventArgs args)
@@ -162,21 +122,27 @@ public class PlayerCharacterScript : NetworkBehaviour {
                 spellSys.FireMode = true;
                 spellSys.LitMode = false;
                 spellSys.ShieldMode = false;
+                spellSys.castCounter = 4;
                 wandColor.GetComponent<Renderer>().material.color = Color.red;
+                tipColor.GetComponent<Renderer>().material.color = Color.red;
             }
             else if (args.text == "lightning")
             {
                 spellSys.LitMode = true;
                 spellSys.FireMode = false;
                 spellSys.ShieldMode = false;
+                spellSys.castCounter = 4;
                 wandColor.GetComponent<Renderer>().material.color = Color.yellow;
+                tipColor.GetComponent<Renderer>().material.color = Color.yellow;
             }
             else if(args.text == "shield")
             {
                 spellSys.ShieldMode = true;
                 spellSys.FireMode = false;
                 spellSys.LitMode = false;
+                spellSys.castCounter = 1;
                 wandColor.GetComponent<Renderer>().material.color = Color.green;
+                tipColor.GetComponent<Renderer>().material.color = Color.green;
             }
         }
 
