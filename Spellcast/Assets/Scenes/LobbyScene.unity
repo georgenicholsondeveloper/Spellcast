@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -321,7 +321,7 @@ MonoBehaviour:
   m_GamePlayerPrefab: {fileID: 1947158747923396, guid: 1429712afb540af468981e83d87e2f02,
     type: 2}
   m_LobbyScene: LobbyScene
-  m_PlayScene: MainScene
+  m_PlayScene: NetworkingTest
   lobbySlots: []
   ipAddress: localhost
 --- !u!4 &86318174
