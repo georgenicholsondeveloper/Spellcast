@@ -12,7 +12,8 @@ TagManager:
   - LobbyManager
   - MenuManager
   - characterSelect
-  - Spell
+  - Fireball
+  - Lightning
   layers:
   - Default
   - TransparentFX

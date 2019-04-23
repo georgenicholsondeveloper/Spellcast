@@ -82,7 +82,7 @@ GameObject:
   - component: {fileID: 114144241299306162}
   m_Layer: 0
   m_Name: LightningTestpacket
-  m_TagString: Spell
+  m_TagString: Lightning
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

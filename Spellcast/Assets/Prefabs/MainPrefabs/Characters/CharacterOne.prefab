@@ -126,6 +126,7 @@ GameObject:
   - component: {fileID: 33484217834051098}
   - component: {fileID: 23328796744142114}
   - component: {fileID: 136972430045832082}
+  - component: {fileID: 114432491429248668}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -622,6 +623,17 @@ MonoBehaviour:
   m_MovementThreshold: 0.001
   m_InterpolateRotation: 0.5
   m_InterpolateMovement: 0.5
+--- !u!114 &114432491429248668
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1620204296404526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dfcc5355f657e648b7f0eba5022828f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114533881250237572
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -743,7 +755,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 1634477562934418}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
@@ -769,7 +781,7 @@ CharacterController:
   m_GameObject: {fileID: 1634477562934418}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Height: 2
   m_Radius: 0.5

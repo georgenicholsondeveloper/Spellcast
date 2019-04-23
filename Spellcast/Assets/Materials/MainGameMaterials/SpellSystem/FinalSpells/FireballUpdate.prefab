@@ -112,7 +112,7 @@ GameObject:
   - component: {fileID: 114569098442812990}
   m_Layer: 0
   m_Name: FireballUpdate
-  m_TagString: Untagged
+  m_TagString: Fireball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -193,7 +193,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1989922901165804}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -1.07, y: 5.15, z: 0.486}
+  m_LocalPosition: {x: 19.949905, y: -2.1058424, z: -2.607}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4862530455465862}
@@ -332,7 +332,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e9a2167e56ebec4aa182d2f8b10762d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bouncecount: 0
   player: {fileID: 0}
   minusBy: 3
   Limit: 12
@@ -346,7 +345,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!198 &198229085255308486
 ParticleSystem:

@@ -63,10 +63,9 @@ public class Calibration : MonoBehaviour
         rZ *= rZ;
         float r2 = rX + rY + rZ;
         sphereRadius = Mathf.Sqrt(r2);
-        print(sphereRadius);
+
         //sphereRadius = sphereRadius - sphereRadius / 200;
-        print(r2);
-        print(sphereRadius);
+
 
         //The formula for the equation of a sphere
         //https://www.kristakingmath.com/blog/center-radius-and-equation-of-the-sphere

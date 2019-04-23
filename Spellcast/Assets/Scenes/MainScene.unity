@@ -994,6 +994,7 @@ GameObject:
   m_Component:
   - component: {fileID: 349790823}
   - component: {fileID: 349790822}
+  - component: {fileID: 349790824}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -1030,6 +1031,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &349790824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 349790821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35e388f5a99ebf742bd6a134dc0e86d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &419942786
 GameObject:
   m_ObjectHideFlags: 0
@@ -1139,75 +1151,6 @@ Prefab:
     - target: {fileID: 4789235353902794, guid: 055e702643a95974d86e0efcd20da445, type: 2}
       propertyPath: m_RootOrder
       value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4789235353902794, guid: 055e702643a95974d86e0efcd20da445, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 2.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4789235353902794, guid: 055e702643a95974d86e0efcd20da445, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 4789235353902794, guid: 055e702643a95974d86e0efcd20da445, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 64047670756431580, guid: 055e702643a95974d86e0efcd20da445,
-        type: 2}
-      propertyPath: m_Convex
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1728293129029092, guid: 055e702643a95974d86e0efcd20da445, type: 2}
-      propertyPath: m_TagString
-      value: floor
-      objectReference: {fileID: 0}
-    - target: {fileID: 1105340473336686, guid: 055e702643a95974d86e0efcd20da445, type: 2}
-      propertyPath: m_TagString
-      value: floor
-      objectReference: {fileID: 0}
-    - target: {fileID: 1084559405057578, guid: 055e702643a95974d86e0efcd20da445, type: 2}
-      propertyPath: m_TagString
-      value: floor
-      objectReference: {fileID: 0}
-    - target: {fileID: 1143468025866932, guid: 055e702643a95974d86e0efcd20da445, type: 2}
-      propertyPath: m_TagString
-      value: floor
-      objectReference: {fileID: 0}
-    - target: {fileID: 1508400702375394, guid: 055e702643a95974d86e0efcd20da445, type: 2}
-      propertyPath: m_TagString
-      value: floor
-      objectReference: {fileID: 0}
-    - target: {fileID: 1893628509013404, guid: 055e702643a95974d86e0efcd20da445, type: 2}
-      propertyPath: m_TagString
-      value: floor
-      objectReference: {fileID: 0}
-    - target: {fileID: 1811242956956078, guid: 055e702643a95974d86e0efcd20da445, type: 2}
-      propertyPath: m_TagString
-      value: floor
-      objectReference: {fileID: 0}
-    - target: {fileID: 1950654852600332, guid: 055e702643a95974d86e0efcd20da445, type: 2}
-      propertyPath: m_TagString
-      value: floor
-      objectReference: {fileID: 0}
-    - target: {fileID: 1096466206011798, guid: 055e702643a95974d86e0efcd20da445, type: 2}
-      propertyPath: m_TagString
-      value: floor
-      objectReference: {fileID: 0}
-    - target: {fileID: 1070281350805304, guid: 055e702643a95974d86e0efcd20da445, type: 2}
-      propertyPath: m_TagString
-      value: floor
-      objectReference: {fileID: 0}
-    - target: {fileID: 1371204956430160, guid: 055e702643a95974d86e0efcd20da445, type: 2}
-      propertyPath: m_TagString
-      value: floor
-      objectReference: {fileID: 0}
-    - target: {fileID: 1351306443163664, guid: 055e702643a95974d86e0efcd20da445, type: 2}
-      propertyPath: m_TagString
-      value: floor
-      objectReference: {fileID: 0}
-    - target: {fileID: 1528582609547354, guid: 055e702643a95974d86e0efcd20da445, type: 2}
-      propertyPath: m_TagString
-      value: floor
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 055e702643a95974d86e0efcd20da445, type: 2}
@@ -6532,7 +6475,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1787, y: -70}
+  m_AnchoredPosition: {x: 1089, y: -70}
   m_SizeDelta: {x: 142, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1722929763
