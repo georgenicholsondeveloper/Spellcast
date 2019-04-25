@@ -10,26 +10,20 @@ public class PlayerCharacterScript : NetworkBehaviour {
     private CharacterController player;
     private SpellSystem spellSys;
 
-    private Vector3 move = Vector3.zero;
-    private GameObject vrtk, manager, hand;
-    public GameObject wand;
-    public GameObject wandColor, tipColor, model;
-    
-    private GameObject spawnPoint1, spawnPoint2;
-    private Camera fpsCamera;
-    private Vector2 moveInput;
-    private Vector2 look;
-    private bool jumpTick;
     public static bool spawnInUse;
-    private KeywordRecognizer recognizer;
 
-    private string[] keywords = new string[] { "fireball", "lightning","shield" };
-    public float moveSpeed;
-    public float jumpForce;
-    public float gravity;
-    public float rotateWand;
-    public float wandHeight;
-    public float playerHealth;
+    public GameObject wand, wandColor, tipColor, model;
+    public float moveSpeed, jumpForce, gravity, rotateWand, wandHeight, playerHealth;
+    public bool isReady;
+
+    private Vector3 move = Vector3.zero;
+    private GameObject vrtk, manager, hand, spawnPoint1, spawnPoint2;    
+    private Camera fpsCamera;
+    private Vector2 moveInput, look;
+    private bool jumpTick;
+    private KeywordRecognizer recognizer;
+    private string[] keywords = new string[] { "fireball", "lightning", "shield" };
+
 
     private void Awake()
     {
@@ -145,8 +139,6 @@ public class PlayerCharacterScript : NetworkBehaviour {
                 tipColor.GetComponent<Renderer>().material.color = Color.green;
             }
         }
-
-
     }
 
 
