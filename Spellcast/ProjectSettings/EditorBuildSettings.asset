@@ -12,9 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/LobbyScene.unity
     guid: cde029205806b41488370ebc07e1c972
   - enabled: 1
-    path: Assets/Scenes/NetworkingTest.unity
-    guid: 889267f8ff3e37848bd656a3a81cd34f
-  - enabled: 1
     path: Assets/Scenes/MainScene.unity
-    guid: 9d03fb9e4334e4c48b0ba4e2c5d1155d
+    guid: 889267f8ff3e37848bd656a3a81cd34f
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects: {}

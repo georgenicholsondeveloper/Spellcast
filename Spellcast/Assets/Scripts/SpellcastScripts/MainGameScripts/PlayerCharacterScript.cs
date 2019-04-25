@@ -40,7 +40,7 @@ public class PlayerCharacterScript : NetworkBehaviour {
 
 
 
-        if (transform.parent != isLocalPlayer)
+        if (!isLocalPlayer)
         {
             fpsCamera.enabled = false;
             vrtk.gameObject.SetActive(false);
@@ -55,6 +55,7 @@ public class PlayerCharacterScript : NetworkBehaviour {
             recognizer.OnPhraseRecognized += SpeechRecognition;
             recognizer.Start();
             AttachWandToHand();
+            CmdTestAttach();
 
             if (gameObject.name.Contains("One"))
             {
@@ -68,18 +69,20 @@ public class PlayerCharacterScript : NetworkBehaviour {
                 player.transform.rotation = spawnPoint2.transform.rotation;
                 vrtk.transform.rotation = transform.rotation;
             }
-            return;
         }
     }
 
 
     void Update()
     {
-        WandInHandLock();
-        CooldownSet();
-        Vector3 mScale = manager.GetComponent<VariableStorageMainGame>().head.transform.position;
-        model.transform.localScale = new Vector3(model.transform.localScale.x, mScale.y * .5f, model.transform.localScale.z);
-        model.transform.position = manager.GetComponent<VariableStorageMainGame>().head.transform.position - new Vector3(0, 0.9f, 0);
+        if (isLocalPlayer)
+        {
+            WandInHandLock();
+            CooldownSet();
+            Vector3 mScale = manager.GetComponent<VariableStorageMainGame>().head.transform.position;
+            model.transform.localScale = new Vector3(model.transform.localScale.x, mScale.y * .5f, model.transform.localScale.z);
+            model.transform.position = manager.GetComponent<VariableStorageMainGame>().head.transform.position - new Vector3(0, 0.9f, 0);
+        }
     }
 
     void AttachWandToHand()
@@ -88,6 +91,12 @@ public class PlayerCharacterScript : NetworkBehaviour {
         wand.transform.position = hand.transform.position + new Vector3(0, wandHeight, 0);
         wand.transform.eulerAngles = hand.transform.eulerAngles - new Vector3(rotateWand, 0, 0);
        
+    }
+
+    [Command]
+    void CmdTestAttach()
+    {
+        print(gameObject.name + "Attach to hand");
     }
 
     void WandInHandLock()
