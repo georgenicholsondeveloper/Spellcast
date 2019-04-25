@@ -40,12 +40,7 @@ public class PlayerCharacterScript : NetworkBehaviour {
 
 
 
-        if (!isLocalPlayer)
-        {
-            fpsCamera.enabled = false;
-            vrtk.gameObject.SetActive(false);
-        }
-        else
+        if(isLocalPlayer || transform.parent == isLocalPlayer)
         {                     
             vrtk.gameObject.SetActive(true);
             vrtk.transform.parent = this.transform;
@@ -55,7 +50,6 @@ public class PlayerCharacterScript : NetworkBehaviour {
             recognizer.OnPhraseRecognized += SpeechRecognition;
             recognizer.Start();
             AttachWandToHand();
-            CmdTestAttach();
 
             if (gameObject.name.Contains("One"))
             {
@@ -77,6 +71,11 @@ public class PlayerCharacterScript : NetworkBehaviour {
     {
         if (isLocalPlayer)
         {
+              if (isServer)
+                  RpcWow();
+              else
+                  CmdBuffer();
+                  
             WandInHandLock();
             CooldownSet();
             Vector3 mScale = manager.GetComponent<VariableStorageMainGame>().head.transform.position;
@@ -89,14 +88,19 @@ public class PlayerCharacterScript : NetworkBehaviour {
     {
         hand  = manager.GetComponent<VariableStorageMainGame>().hand;
         wand.transform.position = hand.transform.position + new Vector3(0, wandHeight, 0);
-        wand.transform.eulerAngles = hand.transform.eulerAngles - new Vector3(rotateWand, 0, 0);
-       
+        wand.transform.eulerAngles = hand.transform.eulerAngles - new Vector3(rotateWand, 0, 0);      
     }
 
     [Command]
-    void CmdTestAttach()
+    void CmdBuffer()
     {
-        print(gameObject.name + "Attach to hand");
+        RpcWow();
+    }
+
+    [ClientRpc]
+    void RpcWow()
+    {
+        WandInHandLock();
     }
 
     void WandInHandLock()

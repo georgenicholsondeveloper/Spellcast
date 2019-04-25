@@ -615,9 +615,9 @@ MonoBehaviour:
   m_Script: {fileID: -1267208747, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Target: {fileID: 4920073264049958}
+  m_Target: {fileID: 4205814544681372}
   m_ChildIndex: 0
-  m_SendInterval: 0.1
+  m_SendInterval: 0.09090909
   m_SyncRotationAxis: 7
   m_RotationSyncCompression: 0
   m_MovementThreshold: 0.001
@@ -634,6 +634,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dfcc5355f657e648b7f0eba5022828f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 100
 --- !u!114 &114533881250237572
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -734,6 +735,7 @@ MonoBehaviour:
   rotateWand: -25
   wandHeight: -0.06
   playerHealth: 0
+  isReady: 0
 --- !u!136 &136509179395768524
 CapsuleCollider:
   m_ObjectHideFlags: 1
